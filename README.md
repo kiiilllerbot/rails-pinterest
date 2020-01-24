@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: 2.6.3
 
-Things you may want to cover:
+* Rails version: 5.2.4.1
 
-* Ruby version
+* Node version: 8.17.0
 
-* System dependencies
+* Storage: Rails Active Storage
 
-* Configuration
+* Development Database: SqLite
 
-* Database creation
+* Deployment: Can be deployed in heroku after migrating database to PostgreSQL and AWS S3 for image storage.
 
-* Database initialization
+Project Fully Implemented By Shimol Khan
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
