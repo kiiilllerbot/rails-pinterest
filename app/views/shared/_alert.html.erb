@@ -7,14 +7,14 @@
     </div>
 <% elsif flash[:error] %>
     <div id="notice_wrapper">
-        <div class="alert alert-error">
+        <div class="alert alert-warning">
             <button type="button" class="close" data-dismiss="alert"><i class="far fa-times-circle"></i></button>
             <%= flash[:error] %>
         </div>
     </div>
 <% elsif flash[:alert] %>
     <div id="notice_wrapper">
-        <div class="alert">
+        <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert"><i class="far fa-times-circle"></i></button>
             <%= flash[:alert] %>
         </div>

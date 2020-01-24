@@ -1,7 +1,12 @@
 @import "bootstrap";
 @import "masonry/transitions";
+@import "pins";
 html,body{
 	margin-top: 40px;
+}
+
+body{
+  padding-bottom: 70px;
 }
 
 .navbar-brand{
@@ -56,4 +61,8 @@ html,body{
 }
 .box img{
     width: 100%;
+}
+
+abbr{
+    display: none;
 }

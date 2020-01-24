@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" style="padding-top: 2vh">
 	<div class="col-md-5">
 		<div class="card">
 		  <div class="view overlay">
@@ -18,11 +18,18 @@
 			    <% end %>
 		    </h4>
 		    <p class="card-text"><%= @pin.description %></p>
+		    <span class="text-muted"><%= time_ago_in_words(@pin.created_at)%> ago</span>
 
 		  </div>
 		  <div class="card-footer">
 		  	<div class="float-left">
-		  		<p class="text-muted pt-2">Submitted by <%= @pin.user.email%></p>
+		  		<p class="text-muted pt-2">Submitted by 
+					<% if @pin.user.name? %>
+						<%= @pin.user.name%>
+					<% else %>
+						<%= @pin.user.email%>
+					<% end %>
+		  		</p>
 		  	</div>
 		  	
 		  	<div class="float-right">
