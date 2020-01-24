@@ -1,4 +1,7 @@
 class Pin < ApplicationRecord
+
+  acts_as_votable
+
   belongs_to :user
   has_many :comments, dependent: :destroy
 
@@ -7,4 +10,5 @@ class Pin < ApplicationRecord
   validates :title, presence:true
   validates :description, presence:true
   validates :image, presence:true
+  
 end

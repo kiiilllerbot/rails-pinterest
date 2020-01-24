@@ -26,9 +26,9 @@
 		  	</div>
 		  	
 		  	<div class="float-right">
-		  		<%= link_to "#!",:class=>"btn btn-sm btn-danger" do %>
-		  				<i class="fas fa-heart pr-1"></i> 10
-		  		<% end %>
+		  		<%= link_to like_pin_path(@pin),:class=>"btn btn-sm btn-danger", method: :put do %>
+					<i class="fas fa-heart pr-1"></i> <%= @pin.get_upvotes.size %>
+				<% end %>
 		  	</div>
 		  </div>
 		</div>
@@ -51,8 +51,8 @@
             </div>
             <br>
             <%= form_with model: [@pin, @comment], remote: true do |f| %>
-                <%= f.text_area :body,:class=>"form-control",placeholder:'Comment',rows:5  %>
-                <div class="text-center" style="padding-top: 5px">
+                <%= f.text_area :body,:class=>"form-control",placeholder:'Say something ...',rows:5  %>
+                <div style="padding-top: 5px">
                   <%= f.submit "Comment",:class=>"btn btn-sm btn-primary", remote: true %>
                   <%= link_to "Back",pins_path,:class=>"btn btn-sm btn-secondary" %>
                 </div>
