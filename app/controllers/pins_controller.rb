@@ -7,6 +7,8 @@ class PinsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @pin.comments.all
   end
 
   def new

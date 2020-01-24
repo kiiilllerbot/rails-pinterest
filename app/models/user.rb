@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :email, uniqueness:true
 
   has_many :pins
+  has_many :comments
 end

@@ -8,8 +8,17 @@
 		    </a>
 		  </div>
 		  <div class="card-body">
-		    <h4 class="card-title"><%= @pin.title %></h4>
+		    <h4 class="card-title"><%= @pin.title %>
+			    <% if user_signed_in? %>
+			    	<% if current_user && current_user == @pin.user || current_user.admin? %>
+			    		<%= link_to edit_pin_path do %>
+			    			<i class="fas fa-cog text-muted"></i>
+			    		<% end %>
+			    	<% end %>
+			    <% end %>
+		    </h4>
 		    <p class="card-text"><%= @pin.description %></p>
+
 		  </div>
 		  <div class="card-footer">
 		  	<div class="float-left">
@@ -24,7 +33,33 @@
 		  </div>
 		</div>
 	</div>
-</div>
 
-<%= link_to 'Edit', edit_pin_path(@pin) %> |
-<%= link_to 'Back', pins_path %>
+	<div class="col-md-7">
+		<div class="card">
+		  	<div class="card-header">
+				<h5 class="text-center">
+					<p>Comments</p>
+				</h5>
+			</div>
+		  <div class="card-body">
+			<div class="post-comments">
+              <% @comments.each do |comment| %>
+                <div id="comment_pane">
+                  <%= render 'comments/comment', comment: comment %>
+                </div>
+              <% end %>
+            </div>
+            <br>
+            <%= form_with model: [@pin, @comment], remote: true do |f| %>
+                <%= f.text_area :body,:class=>"form-control",placeholder:'Comment',rows:5  %>
+                <div class="text-center" style="padding-top: 5px">
+                  <%= f.submit "Comment",:class=>"btn btn-sm btn-primary", remote: true %>
+                  <%= link_to "Back",pins_path,:class=>"btn btn-sm btn-secondary" %>
+                </div>
+            <% end %>
+		  </div>
+		  <div class="card-footer">
+		  </div>
+		</div>
+	</div>
+</div>

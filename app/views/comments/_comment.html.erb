@@ -1,0 +1,21 @@
+<div id="comment-<%= comment.id %>" class="pl-4" style="border-left: 7px solid #00C853">
+	<div class="text-left">
+		<% if comment.user.name %>
+			<strong>
+			<%= comment.user.name %>
+			</strong>
+		<% else %>
+		<strong>
+			<%= comment.user.email%>
+			</strong>
+		<% end %>
+		<% if user_signed_in? %>
+			<% if current_user && current_user == comment.user || current_user.admin? %>
+				<%= link_to "Delete", pin_comment_path(@pin, comment), method: :delete, remote: true,:class=>"btn btn-sm btn-danger"%>
+			<% end %>
+		<% end %>
+		<br>
+		<small class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</small>
+		<p class="text-justify"><%= comment.body %></p>
+	</div>
+</div>
