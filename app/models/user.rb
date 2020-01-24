@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates :email, uniqueness:true
 
-  has_many :pins
-  has_many :comments
+  has_many :pins, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
 end

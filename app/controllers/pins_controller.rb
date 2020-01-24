@@ -1,7 +1,7 @@
 class PinsController < ApplicationController
 
-  # load_and_authorize_resource
-  # skip_authorize_resource :only => [:upvote]
+  load_and_authorize_resource
+  skip_authorize_resource :only => [:upvote]
 
   before_action :set_pin, only: [:show, :edit, :update, :destroy,:upvote]
   before_action :authenticate_user!, except:[:index, :show]

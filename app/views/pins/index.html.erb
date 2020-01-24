@@ -4,7 +4,11 @@
     <div class="box">
         <div class="card" style="width: 100%">
           <div class="view overlay">
-            <%= image_tag(pin.image,:size=>"220x320",:class=>"card-img-top")%>
+            <% if pin.image.attached? %>
+              <%= image_tag(pin.image,:size=>"220x320",:class=>"card-img-top")%>
+            <% else %>
+              <%= image_tag('black.png',:size=>"220x320",:class=>"card-img-top")%>
+            <% end %>
             <a href="#!">
               <div class="mask rgba-white-slight"></div>
             </a>
