@@ -1,31 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Pins</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div id="pins" class="transitions-enabled">
+  <div class="row justify-content-center">
     <% @pins.each do |pin| %>
-      <tr>
-        <td><%= pin.title %></td>
-        <td><%= pin.description %></td>
-        <td><%= pin.user %></td>
-        <td><%= link_to 'Show', pin %></td>
-        <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
-        <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="box">
+        <div class="card" style="width: 100%">
+          <div class="view overlay">
+            <%= image_tag(pin.image,:size=>"220x320",:class=>"card-img-top")%>
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="card-title text-center"><%= link_to pin.title, pin,:class=>"text-muted" %></p>
+          </div>
+        </div>
+        <br>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Pin', new_pin_path %>
+  </div>
+</div>

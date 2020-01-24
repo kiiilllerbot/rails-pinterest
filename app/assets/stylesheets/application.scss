@@ -1,1 +1,59 @@
 @import "bootstrap";
+@import "masonry/transitions";
+html,body{
+	margin-top: 40px;
+}
+
+.navbar-brand{
+	font-weight: 600;
+	color: #f44336 !important;
+	i{
+		color: #f44336;
+	}
+}
+
+.form-control{
+	border-radius: 0;
+}
+
+.form-control:focus{
+    border-color: #cccccc;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.alert{
+    margin:0;
+    position:fixed; 
+    top: 0px; 
+    left: 0px; 
+    width: 100%;
+    z-index:9999; 
+    border: 0;
+    border-radius:0px;
+    background-color: #55B559;
+    padding: 28px;
+    text-align: center;
+    color: #fff;
+    font-weight: 450;
+    .close{
+        color: #fff !important;
+        opacity: 0.80;
+    }
+    .close:hover{
+        color: #fff !important;
+        opacity: 1;
+    }
+
+}
+
+#pins{
+    margin: 0 auto;
+}
+.box{
+    margin: 5px;
+    width: 300px;
+}
+.box img{
+    width: 100%;
+}

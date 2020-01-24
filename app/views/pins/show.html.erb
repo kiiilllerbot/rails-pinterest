@@ -1,19 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @pin.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @pin.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @pin.user %>
-</p>
+<div class="row">
+	<div class="col-md-5">
+		<div class="card">
+		  <div class="view overlay">
+		  	<%= image_tag(@pin.image,:size=>"220x320",:class=>"card-img-top")%>
+		    <a href="#!">
+		      <div class="mask rgba-white-slight"></div>
+		    </a>
+		  </div>
+		  <div class="card-body">
+		    <h4 class="card-title"><%= @pin.title %></h4>
+		    <p class="card-text"><%= @pin.description %></p>
+		  </div>
+		  <div class="card-footer">
+		  	<div class="float-left">
+		  		<p class="text-muted pt-2">Submitted by <%= @pin.user.email%></p>
+		  	</div>
+		  	
+		  	<div class="float-right">
+		  		<%= link_to "#!",:class=>"btn btn-sm btn-danger" do %>
+		  				<i class="fas fa-heart pr-1"></i> 10
+		  		<% end %>
+		  	</div>
+		  </div>
+		</div>
+	</div>
+</div>
 
 <%= link_to 'Edit', edit_pin_path(@pin) %> |
 <%= link_to 'Back', pins_path %>
